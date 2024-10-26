@@ -47,3 +47,30 @@ int is_sorted(t_list *stack)
     }
     return 1;
 }
+// utils.c (add this to your existing utils.c file)
+#include "push_swap.h"
+
+int ft_atoi(const char *str)
+{
+    int sign = 1;
+    long result = 0;
+
+    while (*str == ' ' || (*str >= 9 && *str <= 13)) // Skip whitespace
+        str++;
+    if (*str == '-' || *str == '+') // Handle sign
+    {
+        if (*str == '-')
+            sign = -1;
+        str++;
+    }
+    while (*str >= '0' && *str <= '9') // Convert string to int
+    {
+        result = result * 10 + (*str - '0');
+        str++;
+        if (result * sign > INT_MAX) // Check for overflow
+            return (-1); // Handle overflow
+        if (result * sign < INT_MIN) // Handle underflow
+            return (0);
+    }
+    return (result * sign);
+}

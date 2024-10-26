@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isneves- <isneves-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isabella <isabella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 19:29:48 by isneves-          #+#    #+#             */
-/*   Updated: 2024/09/17 19:37:14 by isneves-         ###   ########.fr       */
+/*   Updated: 2024/10/26 15:33:37 by isabella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void tiny_sort(t_list **a)
+void tiny_sort(t_list **a, t_list **b)
 {
     if (stack_size(*a) == 2)
     {
@@ -32,7 +32,7 @@ void tiny_sort(t_list **a)
     {
         while (stack_size(*a) > 3)
             pb(a, b);
-        tiny_sort(a);  // Ordena os 3 elementos restantes em `a`
+        tiny_sort(a, b);  // Ordena os 3 elementos restantes em `a`
         while (*b)
             pa(a, b);   // Move de volta para `a` em ordem correta
     }
@@ -67,7 +67,7 @@ void quick_sort_stack(t_list **a, t_list **b)
     }
 
     // Ordena os últimos 3 elementos restantes em `a`
-    tiny_sort(a);
+    tiny_sort(a, b);
     
     // Reinserir os elementos de `b` para `a`
     while (*b)
@@ -116,7 +116,7 @@ void sort_stack(t_list **a, t_list **b)
     int size = stack_size(*a);
 
     if (size <= 5)
-        tiny_sort(a);
+        tiny_sort(a, b);
     else if (size <= 100)
         quick_sort_stack(a, b);
     else

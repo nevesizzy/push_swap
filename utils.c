@@ -47,8 +47,6 @@ int is_sorted(t_list *stack)
     }
     return 1;
 }
-// utils.c (add this to your existing utils.c file)
-#include "push_swap.h"
 
 int ft_atoi(const char *str)
 {

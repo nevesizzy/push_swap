@@ -27,8 +27,6 @@ int get_index(t_list *stack, int value)
     return -1; // Retorna -1 se o valor não for encontrado
 }
 
-#include "push_swap.h"
-
 // Função auxiliar para ordenar um array usando bubble sort
 void bubble_sort(int *arr, int size)
 {

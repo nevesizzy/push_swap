@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// ainda nao sei se vou calcular dessa forma, foi apenas uma possibilidade
+
 #include "push_swap.h"
 
 // Calcula o número de rotações para trazer o valor `value` ao topo
